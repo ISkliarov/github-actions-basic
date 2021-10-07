@@ -1,6 +1,9 @@
 # This is a basic workflow to help you get started with Actions
 
 name: My-Github-action-Basics
+env:
+  APPLICATION_NAME: "MyFlask"
+  PACKAGE_NAME: "flask-deploy-ver-${{ github.sha }}"
 
 # Controls when the workflow will run
 on:
