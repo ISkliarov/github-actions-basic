@@ -21,7 +21,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Git clone my repo
+        uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -31,9 +32,11 @@ jobs:
       - name: Execute few commands
         run: |
           pwd
-          ls -la
           date
           whoami
+
+      - name: List current folder
+        run: ls -la
           
   my_deploy:
     # The type of runner that the job will run on
@@ -46,4 +49,4 @@ jobs:
         run: echo Hello World from Deploy! 
       
       - name: Printing Deployment pakage
-        run: echo "Deploy pacage name is ${{ env.DEPLOY_PACKAGE_NAME }}"
+        run: echo "Deploy package name is ${{ env.DEPLOY_PACKAGE_NAME }}"
